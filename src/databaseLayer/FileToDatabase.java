@@ -1,8 +1,6 @@
 package databaseLayer;
 
 import java.io.File;
-import java.util.ArrayList;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -10,14 +8,23 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
+/**
+ * 
+ * @author Abdul Hanan
+ * 
+ * Class to read all file data and store in database
+ *
+ */
 public class FileToDatabase {
 	DatabaseAccess dataFill;
 	
 	public FileToDatabase() {
 		dataFill = new DatabaseAccess();
 	}
-
+	
+	/**
+	 * function to read all files
+	 */
 	public void readAllFile() {
 		File path = new File("Files");
 		File[] fileList = path.listFiles();
@@ -27,6 +34,11 @@ public class FileToDatabase {
 
 	}
 
+	/**
+	 * 
+	 * reading file once and sending data in database
+	 * @param openFile
+	 */
 	public void readXMLFile(File openFile) {
 		DocumentBuilderFactory dbFact = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuild;
@@ -37,7 +49,7 @@ public class FileToDatabase {
 			
 			NodeList listNode = doc.getElementsByTagName("document");
 			Node node = listNode.item(0);
-			if(node.getNodeType()==node.ELEMENT_NODE) {
+			if(node.getNodeType()==Node.ELEMENT_NODE) {
 				Element useElement = (Element) node;
 				dataFill.insertData(useElement.getElementsByTagName("name").item(0).getTextContent(),
 				useElement.getElementsByTagName("title").item(0).getTextContent(),
@@ -47,8 +59,8 @@ public class FileToDatabase {
 		}
 
 		catch (Exception e) {
-			
-			e.printStackTrace();
+			 System.out.println("Data Insertion Error");
+			 System.exit(0);
 		}
 		
 	}

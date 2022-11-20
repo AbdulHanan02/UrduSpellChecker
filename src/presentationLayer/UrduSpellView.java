@@ -16,16 +16,19 @@ import databaseLayer.FileToDatabase;
 
 public class UrduSpellView extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	
 	public static void main(String[] args) {
 		
 				try {
-					UrduSpellView frame = new UrduSpellView();
-					frame.setVisible(true);
+					FileToDatabase objg = new FileToDatabase();
+					objg.readAllFile();
 					SeperateWords o = new SeperateWords();
 					o.sepWords();
+					UrduSpellView frame = new UrduSpellView();
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

@@ -2,6 +2,14 @@ package transferObject;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Abdul Hanan
+ * 
+ * class to transfer data from dal to bl
+ *
+ */
+
 public class TransferData {
 	private ArrayList<String> objS;
 	

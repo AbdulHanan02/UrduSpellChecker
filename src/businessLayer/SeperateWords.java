@@ -5,16 +5,19 @@ import java.util.ArrayList;
 import databaseLayer.DatabaseAccess;
 import transferObject.TransferData;
 
+/**
+ * 
+ * @author Abdul Hanan
+ *
+ * class to get data and seperate words and save words in database
+ */
 public class SeperateWords {
 	private String word;
 	private int freq;
 	private ArrayList<String> getData;
-	private int indexx;
-
 	public SeperateWords() {
 		word = "";
 		freq = 0;
-		indexx = 0;
 	}
 
 	public String getWord() {
@@ -31,7 +34,6 @@ public class SeperateWords {
 
 	public void setFreq() {
 		this.freq += 1;
-		this.indexx += 1;
 	}
 
 	public boolean searchWord(ArrayList<SeperateWords> a, String s) {
@@ -49,7 +51,10 @@ public class SeperateWords {
 
 	public void sepWords() {
 		TransferData obj = new DatabaseAccess().fetchData();
+		if(obj.getObjS()==null)
+			return;
 		getData = obj.getObjS();
+		
 		ArrayList<SeperateWords> sep = new ArrayList<SeperateWords>();
 		System.out.println("Seperation started");
 		for (String s : getData) {
