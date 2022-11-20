@@ -22,12 +22,12 @@ public class FileToDatabase {
 		File path = new File("Files");
 		File[] fileList = path.listFiles();
 		for (File f : fileList) {
-			this.readXMLFile(f,f.getName());
+			this.readXMLFile(f);
 		}
 
 	}
 
-	public void readXMLFile(File openFile,String fname) {
+	public void readXMLFile(File openFile) {
 		DocumentBuilderFactory dbFact = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuild;
 		
@@ -41,7 +41,7 @@ public class FileToDatabase {
 				Element useElement = (Element) node;
 				dataFill.insertData(useElement.getElementsByTagName("name").item(0).getTextContent(),
 				useElement.getElementsByTagName("title").item(0).getTextContent(),
-				useElement.getElementsByTagName("section").item(0).getTextContent(),fname);
+				useElement.getElementsByTagName("section").item(0).getTextContent());
 			}
 			
 		}

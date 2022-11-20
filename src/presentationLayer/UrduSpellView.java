@@ -1,15 +1,18 @@
 package presentationLayer;
 
 import java.awt.Color;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextPane;
-import javax.swing.JLabel;
 import java.awt.Font;
+
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextPane;
+import javax.swing.border.EmptyBorder;
+
+
+import businessLayer.SeperateWords;
+import databaseLayer.FileToDatabase;
 
 public class UrduSpellView extends JFrame {
 
@@ -17,16 +20,16 @@ public class UrduSpellView extends JFrame {
 
 	
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+		
 				try {
 					UrduSpellView frame = new UrduSpellView();
 					frame.setVisible(true);
+					SeperateWords o = new SeperateWords();
+					o.sepWords();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}
-		});
+		
 	}
 	public UrduSpellView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
