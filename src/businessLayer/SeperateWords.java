@@ -3,6 +3,7 @@ package businessLayer;
 import java.util.ArrayList;
 
 import databaseLayer.DatabaseAccess;
+import databaseLayer.FileToDatabase;
 import transferObject.TransferData;
 
 /**
@@ -48,7 +49,11 @@ public class SeperateWords {
 		}
 		return false;
 	}
-
+	public void setFileData() {
+		FileToDatabase objD = new FileToDatabase();
+		objD.readAllFile();
+		System.out.println("Files complete");
+	}
 	public void sepWords() {
 		TransferData obj = new DatabaseAccess().fetchData();
 		if(obj.getObjS()==null)
@@ -75,7 +80,7 @@ public class SeperateWords {
 		for (SeperateWords s : sep) {
 			objD.insertWord(s.getWord(), s.getFreq());
 		}
-
+		System.out.println("Seperation ended");
 	}
 
 }

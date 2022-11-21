@@ -8,6 +8,7 @@ import javax.swing.text.DefaultHighlighter;
 import javax.swing.text.Highlighter;
 import javax.swing.text.Highlighter.HighlightPainter;
 
+import businessLayer.SeperateWords;
 import businessLayer.UrduSpellModel;
 
 public class UrduSpellController {
@@ -19,6 +20,9 @@ public class UrduSpellController {
 	public UrduSpellController(UrduSpellModel m, UrduSpellView v) {
 		model = m;
 		view = v;
+		SeperateWords objS = new SeperateWords();
+		objS.setFileData();
+		objS.sepWords();
 	}
 
 	public void getStartController() {
