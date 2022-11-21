@@ -7,20 +7,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
+
 import transferObject.TransferData;
 
 /**
  * 
  * @author Abdul Hanan
  * 
- * Database Insert and Select Statements
+ *         Database Insert and Select Statements
  *
  */
-
 
 public class DatabaseAccess {
 
 	private Connection con= null;
+
 	public DatabaseAccess() {
 		try {
 			String userName = "root";
@@ -42,16 +44,17 @@ public class DatabaseAccess {
 		} catch (SQLException e) {
 			System.out.println("Connection Error");
 			System.exit(0);
-			
+
 		}
 	}
+
 	public TransferData fetchData() {
 		TransferData objS = new TransferData();
 		try {
 			String query = "Select * from filedata";
 			Statement st = con.createStatement();
-			ResultSet rs =st.executeQuery(query);
-			while(rs.next()) {
+			ResultSet rs = st.executeQuery(query);
+			while (rs.next()) {
 				objS.setData(rs.getString(4));
 			}
 			System.out.println("File Fetched");
@@ -61,14 +64,18 @@ public class DatabaseAccess {
 		}
 		return objS;
 	}
-	
+
 	public void insertWord(String word, int freq) {
 		try {
+
 			String query = "Insert into word Values ("+null+",'" + word + "'," + freq + ")";
+
 			PreparedStatement st = con.prepareStatement(query);
 			st.execute();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			
+			System.out.println("Connection Error");
+
 		}
 	}
 }

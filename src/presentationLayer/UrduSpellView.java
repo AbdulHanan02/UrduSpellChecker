@@ -19,7 +19,10 @@ public class UrduSpellView extends JFrame {
 
 	JTextArea textArea_1;
 	
-
+/**
+ * @author Abdullah
+ * GUI consisting of JFrame, labels, text areas and buttons
+ */
 	public UrduSpellView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 596, 353);
