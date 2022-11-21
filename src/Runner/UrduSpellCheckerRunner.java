@@ -1,6 +1,5 @@
 package Runner;
 
-import businessLayer.MutantGenerator;
 import businessLayer.SeperateWords;
 import businessLayer.UrduSpellModel;
 import databaseLayer.FileToDatabase;
@@ -9,12 +8,10 @@ import presentationLayer.UrduSpellView;
 
 public class UrduSpellCheckerRunner {
 	public static void main(String[] args) {
-		/*
-		 * FileToDatabase objD = new FileToDatabase(); objD.readAllFile(); SeperateWords
-		 * objS = new SeperateWords(); objS.sepWords();
-		 */
-		MutantGenerator mu = new MutantGenerator();
-		mu.GenerateAndStore();
+		FileToDatabase objD = new FileToDatabase();
+		objD.readAllFile();
+		SeperateWords objS = new SeperateWords();
+		objS.sepWords();
 		UrduSpellView v = new UrduSpellView();
 		v.setVisible(true);
 		UrduSpellModel m = new UrduSpellModel();
