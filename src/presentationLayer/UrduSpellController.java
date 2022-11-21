@@ -24,8 +24,8 @@ public class UrduSpellController {
 		model = m;
 		view = v;
 		SeperateWords objS = new SeperateWords();
-		objS.setFileData();
-		objS.sepWords();
+		//objS.setFileData();
+		//objS.sepWords();
 	}
 /**
  * @author Abdullah
