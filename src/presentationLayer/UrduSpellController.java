@@ -15,12 +15,18 @@ public class UrduSpellController {
 	UrduSpellView view;
 	ArrayList<String> wordsList=new ArrayList<String>();
 	
-	
+	/**
+	 * 
+	 * @author Abdullah
+	 */
 	public UrduSpellController(UrduSpellModel m, UrduSpellView v) {
 		model = m;
 		view = v;
 	}
-
+/**
+ * @author Abdullah
+ * notifies the action listener whenever button is pressed.
+ */
 	public void getStartController() {
 		view.getBtnNewButton().addActionListener(e -> {
 			String line=view.getTextArea().getText();
@@ -28,7 +34,11 @@ public class UrduSpellController {
 
 		});
 	}
-
+	/**
+	 * 
+	 * @author Abdullah
+	 * Provides functionality when clicked upon "Check Statement" button and highlights the incorrect word or sentence
+	 */
 	private void actionOnButton(String line) {
 		wordsList=model.GetWordsListFromDB();
 		if(wordsList==null) {
