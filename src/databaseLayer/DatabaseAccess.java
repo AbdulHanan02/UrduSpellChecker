@@ -34,16 +34,16 @@ public class DatabaseAccess {
 			}
 	}
 
-	public void insertData(String author, String title, String paragraph) {
+	public boolean insertData(String author, String title, String paragraph) {
 		try {
 			String query = "Insert into filedata Values ("+null+",'" + author + "','" + title + "','" + paragraph + "')";
 			PreparedStatement st = con.prepareStatement(query);
 			st.execute();
 		} catch (SQLException e) {
 			System.out.println("Connection Error");
-			System.exit(0);
-
+			return false;
 		}
+		return true;
 	}
 
 	public TransferData fetchData() {
@@ -63,7 +63,7 @@ public class DatabaseAccess {
 		return objS;
 	}
 
-	public void insertWord(String word, int freq) {
+	public boolean insertWord(String word, int freq) {
 		try {
 
 			String query = "Insert into word Values ("+null+",'" + word + "'," + freq + ")";
@@ -73,7 +73,8 @@ public class DatabaseAccess {
 		} catch (SQLException e) {
 			
 			System.out.println("Connection Error");
-
+			return false;
 		}
+		return true;
 	}
 }

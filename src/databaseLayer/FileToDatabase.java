@@ -39,8 +39,9 @@ public class FileToDatabase {
 	 * 
 	 * reading file once and sending data in database
 	 * @param openFile
+	 * @return 
 	 */
-	public void readXMLFile(File openFile) {
+	public boolean readXMLFile(File openFile) {
 		DocumentBuilderFactory dbFact = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuild;
 		
@@ -61,8 +62,8 @@ public class FileToDatabase {
 
 		catch (Exception e) {
 			 System.out.println("Data Insertion Error");
-			 System.exit(0);
+				return false;
 		}
-		
+		return true;
 	}
 }
