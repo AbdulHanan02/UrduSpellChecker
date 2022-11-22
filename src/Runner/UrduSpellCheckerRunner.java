@@ -6,17 +6,13 @@ import presentationLayer.UrduSpellController;
 import presentationLayer.UrduSpellView;
 /**
  * 
- * @author Abdul Hanan
+ * @author AbdulHanan
  *
  */
 public class UrduSpellCheckerRunner {
 	public static void main(String[] args) {
 
-		//MutantGenerator mu = new MutantGenerator();
-		//mu.GenerateAndStore();
-
 		UrduSpellView v = new UrduSpellView();
-		v.setVisible(true);
 		UrduSpellModel m = new UrduSpellModel();
 		UrduSpellController c = new UrduSpellController(m, v);
 		c.getStartController();

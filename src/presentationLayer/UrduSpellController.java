@@ -8,6 +8,7 @@ import javax.swing.text.DefaultHighlighter;
 import javax.swing.text.Highlighter;
 import javax.swing.text.Highlighter.HighlightPainter;
 
+import businessLayer.MutantGenerator;
 import businessLayer.SeperateWords;
 import businessLayer.UrduSpellModel;
 
@@ -24,8 +25,11 @@ public class UrduSpellController {
 		model = m;
 		view = v;
 		SeperateWords objS = new SeperateWords();
-		//objS.setFileData();
-		//objS.sepWords();
+		objS.setFileData();
+		objS.sepWords();
+		MutantGenerator mu = new MutantGenerator();
+		mu.GenerateAndStore();
+		v.setVisible(true);
 	}
 /**
  * @author Abdullah

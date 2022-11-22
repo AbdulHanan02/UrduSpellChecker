@@ -1,10 +1,16 @@
 package businessLayer;
 
 import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import databaseLayer.MutantDataAccess;
+/**
+ * 
+ * @author Sharif
+ *
+ */
 
 public class MutantGenerator {
 
@@ -17,46 +23,47 @@ public class MutantGenerator {
 
 	public List<String> mutantList(String word) {
 		String wordForMutant = word;
-		List<String> mutantsList = new ArrayList<>();
+		List<String> mutantsList = new ArrayList<>();//words in array list, then parsing through cases for mutants generation
 		for (int count = 0; count < wordForMutant.length(); count++) {
 			word = wordForMutant;
 			switch (word.charAt(count)) {
-			case 'ع':
-			case 'آ':
-			case 'ا':
+			case 'ک':
+			case 'ق':
 				mutantsList = this.mutantLoop(mutantsList, word, wordForMutant, 0, count);
 				break;
-			case 'ط':
-			case 'ت':
+			case 'غ':
+			case 'گ':
 				mutantsList = this.mutantLoop(mutantsList, word, wordForMutant, 1, count);
-				break;
-			case 'ث':
-			case 'س':
-			case 'ص':
-				mutantsList = this.mutantLoop(mutantsList, word, wordForMutant, 2, count);
-				break;
-			case 'ح':
-			case 'ہ':
-				mutantsList = this.mutantLoop(mutantsList, word, wordForMutant, 3, count);
-				break;
-			case 'ڈ':
-			case 'ڑ':
-				mutantsList = this.mutantLoop(mutantsList, word, wordForMutant, 4, count);
 				break;
 			case 'ض':
 			case 'ذ':
 			case 'ز':
 			case 'ظ':
+				mutantsList = this.mutantLoop(mutantsList, word, wordForMutant, 2, count);
+				break;
+			case 'ڑ':
+			case 'ڈ':
+				mutantsList = this.mutantLoop(mutantsList, word, wordForMutant, 3, count);
+				break;
+			case 'ح':
+			case 'ہ':
+				mutantsList = this.mutantLoop(mutantsList, word, wordForMutant, 4, count);
+				break;
+			case 'ث':
+			case 'س':
+			case 'ص':
 				mutantsList = this.mutantLoop(mutantsList, word, wordForMutant, 5, count);
 				break;
-			case 'گ':
-			case 'غ':
+			case 'ت':
+			case 'ط':
 				mutantsList = this.mutantLoop(mutantsList, word, wordForMutant, 6, count);
 				break;
-			case 'ق':
-			case 'ک':
+			case 'ع':
+			case 'آ':
+			case 'ا':
 				mutantsList = this.mutantLoop(mutantsList, word, wordForMutant, 7, count);
 				break;
+			
 			}
 
 		}
@@ -64,26 +71,27 @@ public class MutantGenerator {
 	}
 
 	private void setGroup() {
-		mutantSet[0][0] = 'ع';
-		mutantSet[0][1] = 'آ';
-		mutantSet[0][2] = 'ا';
-		mutantSet[1][0] = 'ت';
-		mutantSet[1][1] = 'ط';
-		mutantSet[2][0] = 'ث';
-		mutantSet[2][1] = 'س';
-		mutantSet[2][2] = 'ص';
-		mutantSet[3][0] = 'ح';
-		mutantSet[3][1] = 'ہ';
-		mutantSet[4][0] = 'ڈ';
-		mutantSet[4][1] = 'ڑ';
-		mutantSet[5][0] = 'ض';
-		mutantSet[5][1] = 'ذ';
-		mutantSet[5][2] = 'ز';
-		mutantSet[5][3] = 'ظ';
-		mutantSet[6][0] = 'گ';
-		mutantSet[6][1] = 'غ';
-		mutantSet[7][0] = 'ق';
-		mutantSet[7][1] = 'ک';
+		mutantSet[0][0] = 'ک';
+		mutantSet[0][1] = 'ق';
+		mutantSet[1][0] = 'غ';
+		mutantSet[1][1] = 'گ';
+		mutantSet[2][0] = 'ض';
+		mutantSet[2][1] = 'ذ';
+		mutantSet[2][2] = 'ز';
+		mutantSet[2][3] = 'ظ';
+		mutantSet[3][0] = 'ڑ';
+		mutantSet[3][1] = 'ڈ';
+		mutantSet[4][0] = 'ح';
+		mutantSet[4][1] = 'ہ';
+		mutantSet[5][0] = 'ث';
+		mutantSet[5][1] = 'س';
+		mutantSet[5][2] = 'ص';
+		mutantSet[6][0] = 'ت';
+		mutantSet[6][1] = 'ط';
+		mutantSet[7][0] = 'ع';
+		mutantSet[7][1] = 'آ';
+		mutantSet[7][2] = 'ا';
+	
 	}
 
 	public List<String> mutantLoop(List<String> temp, String mutant, String wordForMutant, int j, int k) {
@@ -97,7 +105,7 @@ public class MutantGenerator {
 		return temp;
 	}
 
-	public void GenerateAndStore() {
+	public void GenerateAndStore() { //storing the generated mutants 
 		MutantDataAccess objN = new MutantDataAccess();
 		try {
 			objN.genMutants();

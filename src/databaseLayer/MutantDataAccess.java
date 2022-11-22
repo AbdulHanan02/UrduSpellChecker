@@ -10,11 +10,15 @@ import java.util.List;
 
 import businessLayer.MutantGenerator;
 
-
+/**
+ * 
+ * @author Sharif
+ *
+ */
 public class MutantDataAccess {
 	private Connection con = null;
 
-	public MutantDataAccess() {
+	public MutantDataAccess() {//working for establishment of connection to Database server
 		try {
 			String userName = "root";
 			String password = "";
@@ -26,7 +30,6 @@ public class MutantDataAccess {
 			ex.printStackTrace();
 		}
 	}
-
 	public void genMutants() throws SQLException {
 		List<String> mutants = new ArrayList<>();
 		Statement st = null;
