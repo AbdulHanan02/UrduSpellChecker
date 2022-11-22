@@ -50,12 +50,12 @@ public class UrduSpellController {
 	private void actionOnButton(String line) {
 		wordsList=model.GetWordsListFromDB();
 		if(wordsList==null) {
-			System.out.println("Word list from database is empty");
+			System.out.println("Database word list is empty");
 		}
 		line+=" ";
 		String [] words=line.split(" ");
 		String WrongNewLine="";
-		ArrayList<String> wrongWords=model.checkWords(wordsList,words);
+		ArrayList<String> wrongWords=model.verifyWords(wordsList,words);
 		for (int i = 0; i < wrongWords.size(); i++) {
 			String string = wrongWords.get(i);
 			WrongNewLine+=string+" ";
@@ -64,7 +64,7 @@ public class UrduSpellController {
 		view.getTextArea_1().setText(WrongNewLine);
 		Highlighter high = view.getTextArea_1().getHighlighter();
 		high.removeAllHighlights();
-		HighlightPainter y = new DefaultHighlighter.DefaultHighlightPainter(Color.red);
+		HighlightPainter y = new DefaultHighlighter.DefaultHighlightPainter(Color.yellow);
 		try {
 			high.addHighlight(0,WrongNewLine.length() , y);
 		} catch (BadLocationException e) {

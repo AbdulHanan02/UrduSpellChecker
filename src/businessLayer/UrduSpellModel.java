@@ -25,7 +25,7 @@ public class UrduSpellModel {
  * Checks the entered words against provided words in the database 
  * 
  */
-	public ArrayList<String> checkWords(ArrayList<String> wordsList, String[] words) {
+	public ArrayList<String> verifyWords(ArrayList<String> wordsList, String[] words) {
 		ArrayList<String> wrongList = new ArrayList<String>();
 		boolean flag=false;
 		for (int i = 0; i < words.length; i++) {
