@@ -116,9 +116,9 @@ public class MutantGenerator {
 		System.out.println("Mutants Generated");
 	}
 
-	public static void main(String[] args) {
-		MutantGenerator ml = new MutantGenerator();
-		ml.GenerateAndStore();
-
-	}
+//	public static void main(String[] args) {
+//		MutantGenerator ml = new MutantGenerator();
+//		ml.GenerateAndStore();
+//
+//	}
 }

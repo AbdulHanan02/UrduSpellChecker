@@ -18,6 +18,7 @@ public class UrduSpellView extends JFrame {
 	
 
 	JTextArea textArea_1;
+	private JButton btnNewButton_1;
 	
 /**
  * @author Abdullah
@@ -54,6 +55,10 @@ public class UrduSpellView extends JFrame {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblNewLabel_1.setBounds(35, 213, 91, 23);
 		contentPane.add(lblNewLabel_1);
+		
+		btnNewButton_1 = new JButton("Insert Word");
+		btnNewButton_1.setBounds(231, 288, 117, 29);
+		contentPane.add(btnNewButton_1);
 	}
 	public JButton getBtnNewButton() {
 		return btnNewButton;
@@ -62,7 +67,13 @@ public class UrduSpellView extends JFrame {
 	public void setBtnNewButton(JButton btnNewButton) {
 		this.btnNewButton = btnNewButton;
 	}
-
+	
+	public JButton getBtnNewButton_1() {
+		return btnNewButton_1;
+	}
+	public void setBtnNewButton_1(JButton btnNewButton_1) {
+		this.btnNewButton_1 = btnNewButton_1;
+	}
 	public JTextArea getTextArea() {
 		return textArea;
 	}

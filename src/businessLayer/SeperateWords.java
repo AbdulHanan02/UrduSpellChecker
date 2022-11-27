@@ -65,7 +65,7 @@ public class SeperateWords {
 		for (String s : getData) {
 			String[] splitWord = s.split(" ");
 			for (String wordd : splitWord) {
-				wordd=wordd.replaceAll("(?U)[\\W_]+", " ");
+				wordd=wordd.replaceAll("[a-zA-Z0-9]|[:;]-?[()0Dp]|(?U)[\\W_]+", "");
 				if (this.searchWord(sep, wordd)) {
 					
 				} else {

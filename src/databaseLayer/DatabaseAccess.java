@@ -72,7 +72,7 @@ public class DatabaseAccess {
 			st.execute();
 		} catch (SQLException e) {
 			
-			System.out.println("Connection Error");
+			System.out.println("Word Already There.");
 			return false;
 		}
 		return true;
